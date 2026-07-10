@@ -1,0 +1,429 @@
+/* ===========================
+   PAGE BANNER
+=========================== */
+
+.page-banner{
+    position: relative;
+    height: 420px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-banner::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(10,42,102,.75),
+        rgba(10,42,102,.65)
+    );
+}
+
+.page-overlay{
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+}
+
+.page-overlay h1{
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.page-overlay p{
+    font-size: 18px;
+    opacity: .95;
+}
+
+/* ===========================
+   COMMON SECTION
+=========================== */
+
+.page-section{
+    padding: 100px 0;
+    background: #fff;
+}
+
+.container{
+    width: 90%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.two-column{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.page-image{
+    width: 100%;
+    border-radius: 22px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.12);
+}
+
+/* ===========================
+   SECTION BADGE
+=========================== */
+
+.section-badge{
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 50px;
+    background: #F6B300;
+    color: #0A2A66;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+/* ===========================
+   HEADINGS
+=========================== */
+
+.page-section h2{
+    font-size: 52px;
+    color: #0A2A66;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.page-section p{
+    color: #666;
+    line-height: 1.9;
+    font-size: 17px;
+    margin-bottom: 18px;
+}
+
+/* ===========================
+   VISION & MISSION
+=========================== */
+
+.vision-section{
+    background: #F8FAFC;
+    padding: 100px 0;
+}
+
+.vision-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 35px;
+}
+
+.vision-card{
+    background: white;
+    padding: 50px;
+    border-radius: 22px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.08);
+    transition: .35s;
+    border-top: 6px solid #F6B300;
+}
+
+.vision-card:hover{
+    transform: translateY(-8px);
+}
+
+.vision-card h3{
+    color: #0A2A66;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.vision-card p{
+    margin: 0;
+}
+
+/* ===========================
+   SECTION TITLE
+=========================== */
+
+.section-title{
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2{
+    color: #0A2A66;
+    font-size: 48px;
+    margin: 20px 0;
+}
+
+.section-title p{
+    max-width: 700px;
+    margin: auto;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+.two-column{
+
+grid-template-columns:1fr;
+
+}
+
+.vision-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.page-overlay h1{
+
+font-size:46px;
+
+}
+
+.page-section h2{
+
+font-size:40px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.page-banner{
+
+height:300px;
+
+}
+
+.page-overlay h1{
+
+font-size:34px;
+
+}
+
+.page-section{
+
+padding:70px 0;
+
+}
+
+}
+.academic-intro{
+
+    text-align:center;
+
+    max-width:900px;
+
+}
+
+.academic-intro h2{
+
+    margin:25px 0;
+
+}
+/* ===========================
+   ACADEMIC LEVELS
+=========================== */
+
+.levels-section{
+
+    background:#F8FAFC;
+
+}
+
+.levels-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+.level-card{
+
+    background:#fff;
+
+    padding:40px 30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    border-top:5px solid #F6B300;
+
+}
+
+.level-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.level-icon{
+
+    font-size:55px;
+
+    margin-bottom:20px;
+
+}
+
+.level-card h3{
+
+    color:#0A2A66;
+
+    margin-bottom:10px;
+
+}
+
+.level-card h4{
+
+    color:#F6B300;
+
+    font-size:18px;
+
+    margin-bottom:18px;
+
+}
+
+.level-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+@media(max-width:1100px){
+
+.levels-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.levels-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+/* ===========================
+   DEPARTMENTS
+=========================== */
+
+.department-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+.department-card{
+
+    background:#fff;
+
+    padding:40px 35px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    border-bottom:5px solid transparent;
+
+}
+
+.department-card:hover{
+
+    transform:translateY(-10px);
+
+    border-bottom:5px solid #F6B300;
+
+}
+
+.department-icon{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+    border-radius:50%;
+
+    background:#0A2A66;
+
+    color:#F6B300;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:40px;
+
+}
+
+.department-card h3{
+
+    color:#0A2A66;
+
+    margin-bottom:18px;
+
+}
+
+.department-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+@media(max-width:992px){
+
+.department-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.department-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}

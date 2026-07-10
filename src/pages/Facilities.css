@@ -1,0 +1,218 @@
+/* ===========================
+   FACILITIES PAGE
+=========================== */
+
+.facilities-banner{
+    position:relative;
+    height:420px;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.facilities-banner::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(10,42,102,.70);
+}
+
+.facilities-overlay{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:#fff;
+}
+
+.facilities-overlay h1{
+    font-size:60px;
+    margin-bottom:15px;
+    font-weight:700;
+}
+
+.facilities-overlay p{
+    font-size:18px;
+}
+
+/* ===========================
+   COMMON
+=========================== */
+
+.facilities-section{
+    padding:100px 0;
+}
+
+.light{
+    background:#F8FAFC;
+}
+
+.facilities-container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+.facilities-badge{
+    display:inline-block;
+    background:#F6B300;
+    color:#0A2A66;
+    padding:10px 22px;
+    border-radius:40px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.facilities-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.facilities-title h2{
+    color:#0A2A66;
+    font-size:46px;
+    margin-top:20px;
+}
+
+.facilities-container h2{
+    color:#0A2A66;
+    font-size:48px;
+    margin:20px 0;
+}
+
+.facilities-container p{
+    color:#666;
+    line-height:1.9;
+    font-size:17px;
+}
+
+/* ===========================
+   INTRO
+=========================== */
+
+.facilities-container:first-child{
+    max-width:900px;
+    text-align:center;
+}
+
+/* ===========================
+   FACILITY GRID
+=========================== */
+
+.facilities-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.facility-card{
+    background:#fff;
+    padding:40px 35px;
+    text-align:center;
+    border-radius:20px;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+    transition:.35s;
+    border-top:5px solid transparent;
+}
+
+.facility-card:hover{
+    transform:translateY(-10px);
+    border-top:5px solid #F6B300;
+}
+
+.facility-icon{
+    width:90px;
+    height:90px;
+    margin:auto;
+    margin-bottom:25px;
+    border-radius:50%;
+    background:#0A2A66;
+    color:#F6B300;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:42px;
+}
+
+.facility-card h3{
+    color:#0A2A66;
+    margin-bottom:18px;
+    font-size:24px;
+}
+
+.facility-card p{
+    color:#666;
+    line-height:1.8;
+}
+
+/* ===========================
+   SAFETY
+=========================== */
+
+.safety-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.safety-card{
+    background:#0A2A66;
+    color:#fff;
+    padding:35px;
+    text-align:center;
+    border-radius:18px;
+    font-size:20px;
+    font-weight:600;
+    transition:.35s;
+}
+
+.safety-card:hover{
+    background:#F6B300;
+    color:#0A2A66;
+    transform:translateY(-8px);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:1100px){
+
+.facilities-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.safety-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.facilities-banner{
+height:300px;
+}
+
+.facilities-overlay h1{
+font-size:38px;
+}
+
+.facilities-section{
+padding:70px 0;
+}
+
+.facilities-container h2{
+font-size:34px;
+}
+
+.facilities-grid{
+grid-template-columns:1fr;
+}
+
+.safety-grid{
+grid-template-columns:1fr;
+}
+
+}

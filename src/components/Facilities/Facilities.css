@@ -1,0 +1,107 @@
+.facilities{
+
+    padding:100px 0;
+
+    background:#F8FAFC;
+
+}
+
+.facilities-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+.facility-card{
+
+    background:white;
+
+    padding:40px 30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+    border-top:5px solid transparent;
+
+}
+
+.facility-card:hover{
+
+    transform:translateY(-10px);
+
+    border-top:5px solid #F6B300;
+
+}
+
+.facility-icon{
+
+    width:85px;
+
+    height:85px;
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+    border-radius:50%;
+
+    background:#0A2A66;
+
+    color:#F6B300;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:34px;
+
+}
+
+.facility-card h3{
+
+    color:#0A2A66;
+
+    margin-bottom:18px;
+
+}
+
+.facility-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+@media(max-width:992px){
+
+.facilities-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.facilities-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}

@@ -1,0 +1,179 @@
+.top-achievers{
+
+    padding:100px 0;
+
+    background:#fff;
+
+}
+
+.section-heading{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+.section-heading h2{
+
+    font-size:48px;
+
+    color:#0A2A66;
+
+    margin:20px 0;
+
+}
+
+.section-heading p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+.achievers-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+.student-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.student-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.student-card img{
+
+    width:100%;
+
+    height:350px;
+
+    object-fit:cover;
+
+}
+
+.student-info{
+
+    padding:30px;
+
+    text-align:center;
+
+}
+
+.medal{
+
+    font-size:34px;
+
+    color:#F6B300;
+
+    margin-bottom:20px;
+
+}
+
+.student-info h3{
+
+    color:#0A2A66;
+
+    margin-bottom:8px;
+
+}
+
+.student-info p{
+
+    color:#777;
+
+    margin-bottom:18px;
+
+}
+
+.student-info h4{
+
+    color:#0A54D6;
+
+    font-size:26px;
+
+}
+
+.view-all{
+
+    text-align:center;
+
+    margin-top:60px;
+
+}
+
+.view-all button{
+
+    background:#0A2A66;
+
+    color:white;
+
+    border:none;
+
+    padding:16px 34px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.view-all button:hover{
+
+    background:#083EA5;
+
+}
+
+@media(max-width:992px){
+
+.achievers-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.achievers-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}

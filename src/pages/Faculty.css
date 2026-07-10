@@ -1,0 +1,232 @@
+/* ===========================
+   FACULTY PAGE
+=========================== */
+
+.faculty-banner{
+    position:relative;
+    height:420px;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.faculty-banner::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(10,42,102,.70);
+}
+
+.faculty-overlay{
+    position:relative;
+    z-index:2;
+    color:#fff;
+    text-align:center;
+}
+
+.faculty-overlay h1{
+    font-size:60px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.faculty-overlay p{
+    font-size:18px;
+}
+
+/* ===========================
+   COMMON
+=========================== */
+
+.faculty-section{
+    padding:100px 0;
+}
+
+.light{
+    background:#F8FAFC;
+}
+
+.faculty-container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+.faculty-badge{
+    display:inline-block;
+    background:#F6B300;
+    color:#0A2A66;
+    padding:10px 22px;
+    border-radius:40px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.faculty-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.faculty-title h2{
+    font-size:46px;
+    color:#0A2A66;
+    margin-top:20px;
+}
+
+.faculty-container h2{
+    color:#0A2A66;
+    font-size:48px;
+    margin:20px 0;
+}
+
+.faculty-container p{
+    color:#666;
+    line-height:1.9;
+    font-size:17px;
+}
+
+/* ===========================
+   INTRO
+=========================== */
+
+.faculty-container:first-child{
+    text-align:center;
+    max-width:900px;
+}
+
+/* ===========================
+   LEADERSHIP
+=========================== */
+
+.leadership-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.leader-card{
+    background:#fff;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+    transition:.35s;
+    border-top:5px solid transparent;
+}
+
+.leader-card:hover{
+    transform:translateY(-10px);
+    border-top:5px solid #F6B300;
+}
+
+.leader-card h3{
+    color:#0A2A66;
+    margin-bottom:20px;
+    font-size:26px;
+}
+
+.leader-card p{
+    color:#666;
+    line-height:1.8;
+}
+
+/* ===========================
+   DEPARTMENTS
+=========================== */
+
+.department-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.department-box{
+    background:#0A2A66;
+    color:#fff;
+    padding:35px;
+    text-align:center;
+    border-radius:18px;
+    font-size:20px;
+    font-weight:600;
+    transition:.35s;
+}
+
+.department-box:hover{
+    background:#F6B300;
+    color:#0A2A66;
+    transform:translateY(-8px);
+}
+
+/* ===========================
+   PHILOSOPHY
+=========================== */
+
+.faculty-text{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    line-height:2;
+    font-size:18px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:1100px){
+
+.leadership-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.department-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.faculty-banner{
+
+height:300px;
+
+}
+
+.faculty-overlay h1{
+
+font-size:38px;
+
+}
+
+.faculty-section{
+
+padding:70px 0;
+
+}
+
+.faculty-container h2{
+
+font-size:34px;
+
+}
+
+.leadership-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.department-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}

@@ -1,0 +1,235 @@
+/* ==========================
+   ABOUT PAGE
+========================== */
+
+.page-banner{
+    position:relative;
+    height:420px;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.page-banner::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(10,42,102,.65);
+}
+
+.page-overlay{
+    position:relative;
+    z-index:2;
+    color:#fff;
+    text-align:center;
+}
+
+.page-overlay h1{
+    font-size:60px;
+    margin-bottom:15px;
+    font-weight:700;
+}
+
+.page-overlay p{
+    font-size:18px;
+}
+
+/* ==========================
+   COMMON
+========================== */
+
+.page-section{
+    padding:100px 0;
+}
+
+.container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+.two-column{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.page-image{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
+}
+
+.section-badge{
+    display:inline-block;
+    background:#F6B300;
+    color:#0A2A66;
+    padding:10px 22px;
+    border-radius:50px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.page-section h2{
+    font-size:48px;
+    color:#0A2A66;
+    margin-bottom:25px;
+    line-height:1.2;
+}
+
+.page-section p{
+    color:#666;
+    line-height:1.9;
+    margin-bottom:18px;
+    font-size:17px;
+}
+
+/* ==========================
+   VISION
+========================== */
+
+.vision-section{
+    padding:100px 0;
+    background:#F8FAFC;
+}
+
+.vision-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:35px;
+}
+
+.vision-card{
+    background:#fff;
+    padding:50px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+    transition:.35s;
+}
+
+.vision-card:hover{
+    transform:translateY(-10px);
+}
+
+.vision-card h3{
+    color:#0A2A66;
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+.vision-card p{
+    margin:0;
+}
+
+/* ==========================
+   VALUES
+========================== */
+
+.values-section{
+    background:#fff;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    color:#0A2A66;
+    font-size:46px;
+    margin:20px 0;
+}
+
+.section-title p{
+    max-width:700px;
+    margin:auto;
+}
+
+.values-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+.value-card{
+    background:#F8FAFC;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    transition:.35s;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.value-card:hover{
+    transform:translateY(-10px);
+    background:#0A2A66;
+}
+
+.value-card:hover h3,
+.value-card:hover p{
+    color:#fff;
+}
+
+.value-icon{
+    font-size:52px;
+    margin-bottom:20px;
+}
+
+.value-card h3{
+    color:#0A2A66;
+    margin-bottom:18px;
+    transition:.3s;
+}
+
+.value-card p{
+    color:#666;
+    transition:.3s;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:1100px){
+
+.two-column{
+grid-template-columns:1fr;
+}
+
+.values-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.vision-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.page-banner{
+height:300px;
+}
+
+.page-overlay h1{
+font-size:38px;
+}
+
+.page-section{
+padding:70px 0;
+}
+
+.page-section h2{
+font-size:34px;
+}
+
+.values-grid{
+grid-template-columns:1fr;
+}
+
+}

@@ -1,0 +1,269 @@
+/* ===========================
+   GALLERY PAGE
+=========================== */
+
+.gallery-banner{
+    position:relative;
+    height:420px;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.gallery-banner::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(10,42,102,.70);
+}
+
+.gallery-overlay{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:#fff;
+}
+
+.gallery-overlay h1{
+    font-size:60px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.gallery-overlay p{
+    font-size:18px;
+}
+
+/* ===========================
+   COMMON
+=========================== */
+
+.gallery-section{
+    padding:100px 0;
+}
+
+.light{
+    background:#F8FAFC;
+}
+
+.gallery-container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+.gallery-badge{
+    display:inline-block;
+    background:#F6B300;
+    color:#0A2A66;
+    padding:10px 22px;
+    border-radius:40px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.gallery-container h2{
+    color:#0A2A66;
+    font-size:48px;
+    margin:20px 0;
+}
+
+.gallery-container p{
+    color:#666;
+    font-size:17px;
+    line-height:1.9;
+}
+
+.gallery-container:first-child{
+    text-align:center;
+    max-width:900px;
+}
+
+/* ===========================
+   FILTER BUTTONS
+=========================== */
+
+.gallery-filter{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:60px;
+}
+
+.gallery-filter button{
+    border:none;
+    background:#fff;
+    color:#0A2A66;
+    padding:12px 28px;
+    border-radius:40px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    transition:.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.gallery-filter button:hover{
+    background:#0A2A66;
+    color:#fff;
+}
+
+/* ===========================
+   IMAGE GRID
+=========================== */
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.gallery-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.10);
+}
+
+.gallery-card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    display:block;
+    transition:.4s;
+}
+
+.gallery-card:hover img{
+    transform:scale(1.08);
+}
+
+.gallery-card-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(10,42,102,.70);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    opacity:0;
+    transition:.35s;
+}
+
+.gallery-card:hover .gallery-card-overlay{
+    opacity:1;
+}
+
+.gallery-card-overlay h3{
+    margin-bottom:10px;
+    font-size:24px;
+}
+
+.gallery-card-overlay span{
+    background:#F6B300;
+    color:#0A2A66;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:600;
+}
+
+/* ===========================
+   VIDEO SECTION
+=========================== */
+
+.gallery-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.gallery-title h2{
+    color:#0A2A66;
+    font-size:46px;
+    margin-top:20px;
+}
+
+.video-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.video-card{
+    background:#0A2A66;
+    color:#fff;
+    height:220px;
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    font-weight:600;
+    transition:.35s;
+}
+
+.video-card:hover{
+    background:#F6B300;
+    color:#0A2A66;
+    transform:translateY(-8px);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:1100px){
+
+.gallery-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.video-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.gallery-banner{
+height:300px;
+}
+
+.gallery-overlay h1{
+font-size:38px;
+}
+
+.gallery-section{
+padding:70px 0;
+}
+
+.gallery-container h2{
+font-size:34px;
+}
+
+.gallery-grid{
+grid-template-columns:1fr;
+}
+
+.video-grid{
+grid-template-columns:1fr;
+}
+
+.gallery-card img{
+height:250px;
+}
+
+.gallery-filter{
+gap:10px;
+}
+
+.gallery-filter button{
+padding:10px 20px;
+font-size:14px;
+}
+
+}
