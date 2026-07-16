@@ -1,3 +1,5 @@
+import "./TopBar.css";
+
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -8,51 +10,59 @@ import {
 
 const TopBar = () => {
   return (
-    <div className="bg-[#0A2A66] text-white text-sm">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-10">
+    <section className="topbar">
 
-        {/* Left Side */}
-        <div className="flex items-center gap-6">
+      <div className="container topbar-container">
 
-          <span className="font-semibold text-yellow-400">
-            Admission Open 2025-26
+        {/* Left */}
+
+        <div className="topbar-left">
+
+          <span className="admission-badge">
+            Admissions Open 2026-27
           </span>
 
-          <div className="flex items-center gap-2">
-            <FaPhoneAlt size={12} />
+          <a href="tel:+919876543210">
+            <FaPhoneAlt />
             <span>+91 98765 43210</span>
-          </div>
+          </a>
 
-          <div className="flex items-center gap-2">
-            <FaEnvelope size={12} />
+          <a href="mailto:info@edunova.edu.in">
+            <FaEnvelope />
             <span>info@edunova.edu.in</span>
-          </div>
+          </a>
 
         </div>
 
-        {/* Right Side */}
-        <div className="flex items-center gap-5">
+        {/* Right */}
 
-          <a href="#">Alumni</a>
+        <div className="topbar-right">
 
-          <a href="#">Careers</a>
+          <div className="social-icons">
 
-          <a href="#">FAQs</a>
+            <a href="#">
+              <FaFacebookF />
+            </a>
 
-          <button className="bg-yellow-400 text-[#0A2A66] px-4 py-1 rounded font-semibold hover:bg-yellow-300 transition">
+            <a href="#">
+              <FaInstagram />
+            </a>
+
+            <a href="#">
+              <FaYoutube />
+            </a>
+
+          </div>
+
+          <button className="login-btn">
             Teacher Login
           </button>
-
-          <FaFacebookF className="cursor-pointer hover:text-yellow-400" />
-
-          <FaInstagram className="cursor-pointer hover:text-yellow-400" />
-
-          <FaYoutube className="cursor-pointer hover:text-yellow-400" />
 
         </div>
 
       </div>
-    </div>
+
+    </section>
   );
 };
 

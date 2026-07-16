@@ -1,10 +1,8 @@
 import "./Navbar.css";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
-  const location = useLocation();
-
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
@@ -22,7 +20,7 @@ const Navbar = () => {
       <div className="navbar-container">
 
         {/* Logo */}
-        <div className="logo-section">
+        <NavLink to="/" className="logo-section">
 
           <img
             src="https://placehold.co/60x60"
@@ -35,32 +33,30 @@ const Navbar = () => {
             <p>Nurturing Minds, Building Futures</p>
           </div>
 
-        </div>
+        </NavLink>
 
         {/* Navigation */}
         <ul className="nav-links">
 
           {navLinks.map((item) => (
+            <li key={item.name}>
 
-            <li
-              key={item.name}
-              className={
-                location.pathname === item.path
-                  ? "active"
-                  : ""
-              }
-            >
-              <Link to={item.path}>
+              <NavLink
+                to={item.path}
+                end={item.path === "/"}
+                className={({ isActive }) =>
+                  isActive ? "active" : ""
+                }
+              >
                 {item.name}
-              </Link>
-            </li>
+              </NavLink>
 
+            </li>
           ))}
 
         </ul>
 
         {/* Search */}
-
         <div className="search-icon">
           <FaSearch />
         </div>

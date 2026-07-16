@@ -167,6 +167,34 @@ text-align:center;
 .footer-grid{
 
 grid-template-columns:1fr;
+.footer-column ul li a{
+    color: inherit;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.footer-column ul li a:hover{
+    color:#F6B300;
+    padding-left:5px;
+}
+
+.footer-contact a{
+    color:inherit;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.footer-contact a:hover{
+    color:#F6B300;
+}
+
+.footer-social a{
+    transition:.3s;
+}
+
+.footer-social a:hover{
+    transform:translateY(-4px);
+}
 
 }
 

@@ -1,0 +1,108 @@
+/* ==========================================
+   TOP BAR
+========================================== */
+
+.topbar {
+  width: 100%;
+  background: #0A2A66;
+  color: #fff;
+  font-size: 14px;
+}
+
+.topbar-container {
+  height: 46px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ================= LEFT ================= */
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.admission-badge {
+  background: #F6B300;
+  color: #0A2A66;
+
+  padding: 6px 14px;
+
+  border-radius: 30px;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.topbar-left a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #fff;
+  text-decoration: none;
+
+  transition: .3s;
+}
+
+.topbar-left a:hover {
+  color: #F6B300;
+}
+
+/* ================= RIGHT ================= */
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: #fff;
+  transition: .3s;
+}
+
+.social-icons a:hover {
+  color: #F6B300;
+  transform: translateY(-2px);
+}
+
+.login-btn {
+  background: #F6B300;
+  color: #0A2A66;
+
+  border: none;
+
+  padding: 8px 18px;
+
+  border-radius: 30px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.login-btn:hover {
+  background: #fff;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+
+  .topbar {
+    display: none;
+  }
+
+}

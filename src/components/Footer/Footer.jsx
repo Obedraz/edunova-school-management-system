@@ -1,4 +1,5 @@
 import "./Footer.css";
+import { NavLink } from "react-router-dom";
 import {
   FaFacebookF,
   FaInstagram,
@@ -10,6 +11,27 @@ import {
   FaClock,
 } from "react-icons/fa";
 
+const quickLinks = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Academics", path: "/academics" },
+  { name: "Faculty", path: "/faculty" },
+  { name: "Facilities", path: "/facilities" },
+  { name: "Gallery", path: "/gallery" },
+  { name: "Achievements", path: "/achievements" },
+  { name: "Memories", path: "/memories" },
+  { name: "Contact", path: "/contact" },
+];
+
+const facilities = [
+  "Smart Classrooms",
+  "Library",
+  "Science Labs",
+  "Computer Lab",
+  "Sports Complex",
+  "Transport",
+];
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -18,7 +40,7 @@ const Footer = () => {
 
         <div className="footer-grid">
 
-          {/* School Info */}
+          {/* ================= School Info ================= */}
 
           <div className="footer-column">
 
@@ -27,27 +49,42 @@ const Footer = () => {
             </h2>
 
             <p>
-              EduNova Public School is committed to academic
-              excellence, character development and holistic
-              education that prepares students for a successful
-              future.
+              EduNova Public School is committed to providing
+              quality education through academic excellence,
+              innovation, discipline and holistic development.
             </p>
 
             <div className="footer-social">
 
-              <a href="#">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaFacebookF />
               </a>
 
-              <a href="#">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaInstagram />
               </a>
 
-              <a href="#">
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaYoutube />
               </a>
 
-              <a href="#">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FaLinkedinIn />
               </a>
 
@@ -55,7 +92,7 @@ const Footer = () => {
 
           </div>
 
-          {/* Quick Links */}
+          {/* ================= Quick Links ================= */}
 
           <div className="footer-column">
 
@@ -63,23 +100,23 @@ const Footer = () => {
 
             <ul>
 
-              <li>Home</li>
+              {quickLinks.map((link) => (
 
-              <li>About</li>
+                <li key={link.path}>
 
-              <li>Academics</li>
+                  <NavLink to={link.path}>
+                    {link.name}
+                  </NavLink>
 
-              <li>Admissions</li>
+                </li>
 
-              <li>Gallery</li>
-
-              <li>Contact</li>
+              ))}
 
             </ul>
 
           </div>
 
-          {/* Facilities */}
+          {/* ================= Facilities ================= */}
 
           <div className="footer-column">
 
@@ -87,23 +124,19 @@ const Footer = () => {
 
             <ul>
 
-              <li>Smart Classrooms</li>
+              {facilities.map((facility) => (
 
-              <li>Library</li>
+                <li key={facility}>
+                  {facility}
+                </li>
 
-              <li>Science Labs</li>
-
-              <li>Sports</li>
-
-              <li>Transport</li>
-
-              <li>Computer Lab</li>
+              ))}
 
             </ul>
 
           </div>
 
-          {/* Contact */}
+          {/* ================= Contact ================= */}
 
           <div className="footer-column">
 
@@ -115,7 +148,13 @@ const Footer = () => {
 
                 <FaMapMarkerAlt />
 
-                Bengaluru, Karnataka
+                <a
+                  href="https://maps.google.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Bengaluru, Karnataka
+                </a>
 
               </p>
 
@@ -123,7 +162,9 @@ const Footer = () => {
 
                 <FaPhoneAlt />
 
-                +91 9876543210
+                <a href="tel:+919876543210">
+                  +91 9876543210
+                </a>
 
               </p>
 
@@ -131,7 +172,9 @@ const Footer = () => {
 
                 <FaEnvelope />
 
-                info@edunova.edu.in
+                <a href="mailto:info@edunova.edu.in">
+                  info@edunova.edu.in
+                </a>
 
               </p>
 
@@ -148,6 +191,8 @@ const Footer = () => {
           </div>
 
         </div>
+
+        {/* ================= Footer Bottom ================= */}
 
         <div className="footer-bottom">
 

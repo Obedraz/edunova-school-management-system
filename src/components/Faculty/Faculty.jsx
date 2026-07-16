@@ -8,14 +8,14 @@ import teacher4 from "../../assets/images/faculty/teacher4.jpg";
 const faculty = [
   {
     image: teacher1,
-    name: "Dr.A P J Abdul Kalam",
+    name: "Dr. A. P. J. Abdul Kalam",
     designation: "Principal",
     qualification: "M.Ed, Ph.D",
     experience: "22 Years Experience",
   },
   {
     image: teacher2,
-    name: "Narendar Modi",
+    name: "Narendra Modi",
     designation: "Head of Mathematics",
     qualification: "M.Sc Mathematics",
     experience: "15 Years Experience",
@@ -23,14 +23,14 @@ const faculty = [
   {
     image: teacher3,
     name: "Rahul Gandhi",
-    designation: "Science Department",
+    designation: "Head of Science",
     qualification: "M.Sc Physics",
     experience: "12 Years Experience",
   },
   {
     image: teacher4,
-    name: "Mamta Banarjee",
-    designation: "English Department",
+    name: "Mamata Banerjee",
+    designation: "Head of English",
     qualification: "M.A English",
     experience: "10 Years Experience",
   },
@@ -54,7 +54,7 @@ const Faculty = () => {
 
           <p>
             Experienced educators committed to inspiring young
-            minds through knowledge, innovation and values.
+            minds through knowledge, innovation, and values.
           </p>
 
         </div>
@@ -63,7 +63,10 @@ const Faculty = () => {
 
           {faculty.map((teacher, index) => (
 
-            <div className="faculty-card" key={index}>
+            <div
+              className="faculty-card"
+              key={index}
+            >
 
               <div className="faculty-image">
 

@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+
 import MainLayout from "./layouts/MainLayout";
 
 import Home from "./pages/Home";
@@ -14,40 +16,56 @@ import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <Routes>
+    <>
+      <ScrollToTop />
 
-      <Route element={<MainLayout />}>
+      <Routes>
 
-        <Route path="/" element={<Home />} />
+        <Route element={<MainLayout />}>
 
-        <Route path="/about" element={<About />} />
+          <Route path="/" element={<Home />} />
 
-        <Route path="/academics" element={<Academics />} />
+          <Route path="/about" element={<About />} />
 
-        <Route path="/faculty" element={<Faculty />} />
+          <Route
+            path="/academics"
+            element={<Academics />}
+          />
 
-        <Route path="/facilities" element={<Facilities />} />
+          <Route
+            path="/faculty"
+            element={<Faculty />}
+          />
 
-        <Route path="/gallery" element={<Gallery />} />
+          <Route
+            path="/facilities"
+            element={<Facilities />}
+          />
 
-        <Route
-          path="/achievements"
-          element={<Achievements />}
-        />
+          <Route
+            path="/gallery"
+            element={<Gallery />}
+          />
 
-        <Route
-          path="/memories"
-          element={<Memories />}
-        />
+          <Route
+            path="/achievements"
+            element={<Achievements />}
+          />
 
-        <Route
-          path="/contact"
-          element={<Contact />}
-        />
+          <Route
+            path="/memories"
+            element={<Memories />}
+          />
 
-      </Route>
+          <Route
+            path="/contact"
+            element={<Contact />}
+          />
 
-    </Routes>
+        </Route>
+
+      </Routes>
+    </>
   );
 }
 
