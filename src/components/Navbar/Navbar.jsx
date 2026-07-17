@@ -1,6 +1,7 @@
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import logo from "../../assets/images/logo/edunova-logo.png";
 
 const Navbar = () => {
   const navLinks = [
@@ -21,45 +22,39 @@ const Navbar = () => {
 
         {/* Logo */}
         <NavLink to="/" className="logo-section">
-
           <img
-            src="https://placehold.co/60x60"
+            src={logo}
             alt="EduNova Logo"
             className="logo-image"
           />
 
           <div className="logo-text">
-            <h2>EduNova Public School</h2>
-            <p>Nurturing Minds, Building Futures</p>
+            <h2>EduNova</h2>
+            <p>Excellence in Education</p>
           </div>
-
         </NavLink>
 
         {/* Navigation */}
         <ul className="nav-links">
-
           {navLinks.map((item) => (
             <li key={item.name}>
-
               <NavLink
                 to={item.path}
                 end={item.path === "/"}
                 className={({ isActive }) =>
-                  isActive ? "active" : ""
+                  isActive ? "nav-link active" : "nav-link"
                 }
               >
                 {item.name}
               </NavLink>
-
             </li>
           ))}
-
         </ul>
 
-        {/* Search */}
-        <div className="search-icon">
+        {/* Search Button */}
+        <button className="search-icon" aria-label="Search">
           <FaSearch />
-        </div>
+        </button>
 
       </div>
     </nav>
