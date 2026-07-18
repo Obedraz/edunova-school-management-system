@@ -1,0 +1,47 @@
+.teachers-page {
+  padding: 30px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 30px;
+  color: #0A2A66;
+}
+
+.page-header p {
+  margin-top: 8px;
+  color: #64748b;
+}
+
+.add-teacher-btn {
+  border: none;
+  outline: none;
+
+  padding: 14px 24px;
+
+  background: #0A2A66;
+  color: white;
+
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.add-teacher-btn:hover {
+  background: #123A86;
+  transform: translateY(-2px);
+}

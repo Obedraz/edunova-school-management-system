@@ -1,0 +1,214 @@
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 280px;
+  height: 100vh;
+
+  background: linear-gradient(180deg, #0A2A66 0%, #123A86 100%);
+
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px 20px;
+
+  box-shadow: 8px 0 30px rgba(0, 0, 0, .12);
+
+  z-index: 1000;
+}
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.sidebar-logo {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.sidebar-logo h2 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.sidebar-logo span {
+  font-size: 14px;
+  color: #d8e2ff;
+}
+
+/* ==========================================
+   ADMIN PROFILE
+========================================== */
+
+.admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 18px;
+
+  background: rgba(255,255,255,.08);
+
+  border-radius: 16px;
+
+  margin-bottom: 30px;
+}
+
+.profile-avatar {
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+
+  background: #F6B300;
+
+  color: #0A2A66;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.admin-profile h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.admin-profile p {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #dbe4ff;
+}
+
+/* ==========================================
+   MENU
+========================================== */
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  flex: 1;
+
+  overflow-y: auto;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  text-decoration: none;
+
+  color: #e8eeff;
+
+  padding: 14px 16px;
+
+  border-radius: 12px;
+
+  transition: .3s;
+}
+
+.sidebar-link svg {
+  font-size: 18px;
+}
+
+.sidebar-link span {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.sidebar-link:hover {
+  background: rgba(255,255,255,.12);
+
+  transform: translateX(5px);
+}
+
+.sidebar-link.active {
+  background: #F6B300;
+
+  color: #0A2A66;
+
+  font-weight: 700;
+}
+
+/* ==========================================
+   LOGOUT
+========================================== */
+
+.logout-btn {
+  width: 100%;
+
+  border: none;
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  background: rgba(255,255,255,.08);
+
+  color: white;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  transition: .3s;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+.sidebar-menu::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.3);
+  border-radius: 10px;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width:992px){
+
+.sidebar{
+
+transform:translateX(-100%);
+
+transition:.3s;
+
+}
+
+.sidebar.open{
+
+transform:translateX(0);
+
+}
+
+}

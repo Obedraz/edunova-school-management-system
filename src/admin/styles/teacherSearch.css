@@ -1,0 +1,44 @@
+.teacher-search {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 30px;
+}
+
+.teacher-search input,
+.teacher-search select {
+
+  padding: 14px 18px;
+
+  border: 1px solid #d9e2ef;
+
+  border-radius: 10px;
+
+  font-size: 15px;
+
+  outline: none;
+
+  background: white;
+}
+
+.teacher-search input {
+  flex: 1;
+}
+
+.teacher-search input:focus,
+.teacher-search select:focus {
+  border-color: #0A2A66;
+}
+
+@media(max-width:768px){
+
+.teacher-search{
+
+flex-direction:column;
+
+}
+
+}

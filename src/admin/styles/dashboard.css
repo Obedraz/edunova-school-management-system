@@ -1,0 +1,167 @@
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+.dashboard {
+  padding: 30px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  font-size: 32px;
+  color: #0A2A66;
+  margin-bottom: 8px;
+}
+
+.dashboard-header p {
+  color: #64748b;
+  font-size: 16px;
+}
+
+/* ==========================================
+   STATS
+========================================== */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.05);
+  transition: .3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+}
+
+.stat-card h2 {
+  font-size: 34px;
+  color: #0A2A66;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* ==========================================
+   DASHBOARD GRID
+========================================== */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.dashboard-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.05);
+}
+
+.dashboard-card h3 {
+  color: #0A2A66;
+  margin-bottom: 20px;
+}
+
+.dashboard-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dashboard-card li {
+  padding: 14px 0;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.dashboard-card button {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #0A2A66;
+  color: white;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.dashboard-card button:hover {
+  background: #F6B300;
+  color: #0A2A66;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:1200px){
+
+.stats-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.dashboard-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.dashboard{
+padding:20px;
+}
+
+.stats-grid{
+grid-template-columns:1fr;
+}
+.quick-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.action-btn {
+  width: 100%;
+  padding: 16px 18px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #0A2A66;
+  color: #fff;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  background: #F6B300;
+  color: #0A2A66;
+  transform: translateX(5px);
+}
+
+}

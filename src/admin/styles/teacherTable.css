@@ -1,0 +1,50 @@
+.teacher-table {
+  background: white;
+
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  box-shadow: 0 5px 20px rgba(0,0,0,.05);
+}
+
+.teacher-table table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.teacher-table thead {
+  background: #0A2A66;
+
+  color: white;
+}
+
+.teacher-table th,
+.teacher-table td {
+  padding: 18px;
+
+  text-align: left;
+
+  border-bottom: 1px solid #eef2f7;
+}
+
+.teacher-table tbody tr {
+  transition: .2s;
+}
+
+.teacher-table tbody tr:hover {
+  background: #f8fbff;
+}
+
+.teacher-table td:last-child {
+  color: #0A2A66;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.teacher-table td:last-child:hover {
+  color: #123A86;
+}
