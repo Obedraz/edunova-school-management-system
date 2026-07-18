@@ -1,57 +1,90 @@
 import "../../styles/teacherTable.css";
 
-const TeacherTable = () => {
+import {
+  FaEye,
+  FaEdit,
+  FaTrash,
+} from "react-icons/fa";
+
+const TeacherTable = ({ teachers, deleteTeacher }) => {
   return (
     <div className="teacher-table">
-
       <table>
-
         <thead>
-
           <tr>
-            <th>Name</th>
+            <th>ID</th>
+            <th>Teacher</th>
             <th>Department</th>
             <th>Email</th>
             <th>Phone</th>
             <th>Status</th>
-            <th>Action</th>
+            <th align="center">Actions</th>
           </tr>
-
         </thead>
 
         <tbody>
+          {teachers.length > 0 ? (
+            teachers.map((teacher) => (
+              <tr key={teacher.id}>
+                <td>{teacher.id}</td>
 
-          <tr>
-            <td>John Smith</td>
-            <td>Science</td>
-            <td>john@school.com</td>
-            <td>9876543210</td>
-            <td>Active</td>
-            <td>Edit | Delete</td>
-          </tr>
+                <td>{teacher.name}</td>
 
-          <tr>
-            <td>Sarah Wilson</td>
-            <td>Mathematics</td>
-            <td>sarah@school.com</td>
-            <td>9876543211</td>
-            <td>Active</td>
-            <td>Edit | Delete</td>
-          </tr>
+                <td>{teacher.department}</td>
 
-          <tr>
-            <td>Michael Brown</td>
-            <td>English</td>
-            <td>michael@school.com</td>
-            <td>9876543212</td>
-            <td>Leave</td>
-            <td>Edit | Delete</td>
-          </tr>
+                <td>{teacher.email}</td>
 
+                <td>{teacher.phone}</td>
+
+                <td>
+                  <span
+                    className={`status ${
+                      teacher.status === "Active"
+                        ? "active"
+                        : "leave"
+                    }`}
+                  >
+                    {teacher.status}
+                  </span>
+                </td>
+
+                <td className="actions">
+                  <button
+                    className="view-btn"
+                    title="View Teacher"
+                  >
+                    <FaEye />
+                  </button>
+
+                  <button
+                    className="edit-btn"
+                    title="Edit Teacher"
+                  >
+                    <FaEdit />
+                  </button>
+
+                  <button
+                    className="delete-btn"
+                    title="Delete Teacher"
+                    onClick={() => deleteTeacher(teacher.id)}
+                  >
+                    <FaTrash />
+                  </button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td
+                colSpan="7"
+                className="no-data"
+              >
+                No teachers found.
+              </td>
+            </tr>
+          )}
         </tbody>
-
       </table>
-
     </div>
   );
 };

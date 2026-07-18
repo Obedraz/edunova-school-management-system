@@ -1,11 +1,11 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import MainLayout from "./layouts/MainLayout";
 
-// ====================
+// ===========================
 // Public Pages
-// ====================
+// ===========================
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Academics from "./pages/Academics";
@@ -16,14 +16,14 @@ import Achievements from "./pages/Achievements";
 import Memories from "./pages/Memories";
 import Contact from "./pages/Contact";
 
-// ====================
+// ===========================
 // Admin Layout
-// ====================
+// ===========================
 import AdminLayout from "./admin/layouts/AdminLayout";
 
-// ====================
+// ===========================
 // Admin Pages
-// ====================
+// ===========================
 import Login from "./admin/pages/Login";
 import Dashboard from "./admin/pages/Dashboard";
 import Teachers from "./admin/pages/Teachers";
@@ -37,17 +37,16 @@ import Events from "./admin/pages/Events";
 import ContactAdmin from "./admin/pages/Contact";
 import Settings from "./admin/pages/Settings";
 
-
-
 function App() {
   return (
     <>
       <ScrollToTop />
 
       <Routes>
-        {/* ==================== Public Website ==================== */}
+        {/* ===========================
+            Public Website
+        =========================== */}
         <Route element={<MainLayout />}>
-          <Route index element={<Home />} />
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/academics" element={<Academics />} />
@@ -59,12 +58,16 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Route>
 
-        {/* ==================== Admin Login ==================== */}
+        {/* ===========================
+            Admin Login
+        =========================== */}
         <Route path="/admin" element={<Login />} />
 
-        {/* ==================== Admin Dashboard ==================== */}
-        <Route path="/admin/dashboard" element={<AdminLayout />}>
-          <Route index element={<Dashboard />} />
+        {/* ===========================
+            Admin Panel
+        =========================== */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="teachers" element={<Teachers />} />
           <Route path="admissions" element={<Admissions />} />
           <Route path="academics" element={<AcademicsAdmin />} />
@@ -76,12 +79,6 @@ function App() {
           <Route path="contact" element={<ContactAdmin />} />
           <Route path="settings" element={<Settings />} />
         </Route>
-
-        {/* Redirect */}
-        <Route
-          path="/admin/home"
-          element={<Navigate to="/admin/dashboard" replace />}
-        />
       </Routes>
     </>
   );

@@ -52,3 +52,63 @@
 
   background: #123A86;
 }
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+.teacher-modal {
+  width: 500px;
+  max-width: 95%;
+
+  background: white;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  animation: popup .25s ease;
+}
+
+.modal-header {
+  background: #0A2A66;
+  color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 25px;
+}
+
+.modal-header button {
+  background: transparent;
+  border: none;
+
+  color: white;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+@keyframes popup {
+
+  from {
+    transform: scale(.9);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+}
