@@ -1,114 +1,107 @@
-.teacher-form {
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 20px;
-
-  padding: 30px;
-}
-
-.teacher-form input,
-.teacher-form select {
-
-  padding: 14px;
-
-  border: 1px solid #d9e2ef;
-
-  border-radius: 10px;
-
-  outline: none;
-
-  font-size: 15px;
-}
-
-.teacher-form input:focus,
-.teacher-form select:focus {
-
-  border-color: #0A2A66;
-}
-
-.teacher-form button {
-
-  border: none;
-
-  padding: 14px;
-
-  background: #0A2A66;
-
-  color: white;
-
-  border-radius: 10px;
-
-  cursor: pointer;
-
-  font-weight: 600;
-
-  transition: .3s;
-}
-
-.teacher-form button:hover {
-
-  background: #123A86;
-}
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, .45);
-
+  background: rgba(15, 23, 42, 0.55);
   display: flex;
   justify-content: center;
   align-items: center;
-
   z-index: 9999;
+  backdrop-filter: blur(4px);
 }
 
 .teacher-modal {
-  width: 500px;
+  width: 550px;
   max-width: 95%;
-
-  background: white;
-
-  border-radius: 16px;
-
+  background: #fff;
+  border-radius: 18px;
   overflow: hidden;
-
-  animation: popup .25s ease;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.2);
+  animation: popup 0.3s ease;
 }
 
 .modal-header {
-  background: #0A2A66;
-  color: white;
-
+  background: #0a2a66;
+  color: #fff;
+  padding: 18px 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
 
-  padding: 18px 25px;
+.modal-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 .modal-header button {
   background: transparent;
   border: none;
-
   color: white;
-
-  font-size: 22px;
-
+  font-size: 24px;
   cursor: pointer;
 }
 
+.teacher-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 25px;
+}
+
+.teacher-form label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.teacher-form input,
+.teacher-form select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #dbe3ef;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.25s;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.teacher-form input:focus,
+.teacher-form select:focus {
+  border-color: #0a2a66;
+  box-shadow: 0 0 0 3px rgba(10, 42, 102, 0.08);
+}
+
+.teacher-form input[type="file"] {
+  padding: 10px;
+}
+
+.teacher-form button {
+  margin-top: 10px;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #0a2a66;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.teacher-form button:hover {
+  background: #123a86;
+}
+
 @keyframes popup {
-
   from {
-    transform: scale(.9);
     opacity: 0;
+    transform: scale(0.94);
   }
-
   to {
-    transform: scale(1);
     opacity: 1;
+    transform: scale(1);
   }
-
 }

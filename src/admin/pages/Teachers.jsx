@@ -9,85 +9,125 @@ import TeacherForm from "../components/teachers/TeacherForm";
 
 import teacherData from "../data/teachers";
 
-
 const Teachers = () => {
-    const [search, setSearch] = useState("");
   const [teachers, setTeachers] = useState(teacherData);
+  const [search, setSearch] = useState("");
+  const [department, setDepartment] = useState("All");
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Add Teacher
+  const [selectedTeacher, setSelectedTeacher] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+
+  // Add / Update Faculty
   const addTeacher = (teacher) => {
-    const newTeacher = {
-      id: Date.now(),
-      ...teacher,
-    };
+    if (isEditing) {
+      setTeachers((prev) =>
+        prev.map((item) =>
+          item.id === teacher.id ? teacher : item
+        )
+      );
+    } else {
+      setTeachers((prev) => [
+        ...prev,
+        {
+          id: Date.now(),
+          ...teacher,
+        },
+      ]);
+    }
 
-    setTeachers((prevTeachers) => [...prevTeachers, newTeacher]);
     setIsModalOpen(false);
+    setSelectedTeacher(null);
+    setIsEditing(false);
   };
 
-  // Delete Teacher
+  // Delete
   const deleteTeacher = (id) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this teacher?"
-    );
+    if (!window.confirm("Delete this faculty member?")) return;
 
-    if (!confirmDelete) return;
-
-    setTeachers((prevTeachers) =>
-      prevTeachers.filter((teacher) => teacher.id !== id)
+    setTeachers((prev) =>
+      prev.filter((teacher) => teacher.id !== id)
     );
   };
 
+  // View
+  const viewTeacher = (teacher) => {
+    alert(
+      `Faculty Details\n\nName: ${teacher.name}\nDepartment: ${teacher.department}\nStatus: ${teacher.status}`
+    );
+  };
+
+  // Edit
+  const editTeacher = (teacher) => {
+    setSelectedTeacher(teacher);
+    setIsEditing(true);
+    setIsModalOpen(true);
+  };
+
+  // Search
   const filteredTeachers = useMemo(() => {
-  return teachers.filter((teacher) => {
     const keyword = search.toLowerCase();
 
-    return (
-      teacher.name.toLowerCase().includes(keyword) ||
-      teacher.department.toLowerCase().includes(keyword) ||
-      teacher.email.toLowerCase().includes(keyword)
-    );
-  });
-}, [teachers, search]);
+    return teachers.filter((teacher) => {
+      const matchesSearch =
+        teacher.name.toLowerCase().includes(keyword) ||
+        teacher.department.toLowerCase().includes(keyword);
+
+      const matchesDepartment =
+        department === "All" ||
+        teacher.department === department;
+
+      return matchesSearch && matchesDepartment;
+    });
+  }, [teachers, search, department]);
 
   return (
     <div className="teachers-page">
-      {/* Page Header */}
       <div className="page-header">
         <div>
-          <h1>Teacher Management</h1>
-          <p>Manage all teaching staff</p>
+          <h1>Faculty Management</h1>
+          <p>Manage faculty members displayed on the website.</p>
         </div>
 
         <button
           className="add-teacher-btn"
-          onClick={() => setIsModalOpen(true)}
+          onClick={() => {
+            setSelectedTeacher(null);
+            setIsEditing(false);
+            setIsModalOpen(true);
+          }}
         >
-          + Add Teacher
+          + Add Faculty
         </button>
       </div>
 
-      {/* Statistics */}
-      <TeacherStats />
+      <TeacherStats teachers={teachers} />
 
-      {/* Search & Filter */}
       <TeacherSearch
-  search={search}
-  setSearch={setSearch}
-/>
+        search={search}
+        setSearch={setSearch}
+        department={department}
+        setDepartment={setDepartment}
+      />
 
-      {/* Teacher Table */}
       <TeacherTable
         teachers={filteredTeachers}
         deleteTeacher={deleteTeacher}
+        viewTeacher={viewTeacher}
+        editTeacher={editTeacher}
       />
 
-      {/* Add Teacher Modal */}
       {isModalOpen && (
         <TeacherForm
           addTeacher={addTeacher}
-          onClose={() => setIsModalOpen(false)}
+          teacher={selectedTeacher}
+          isEditing={isEditing}
+          onClose={() => {
+            setIsModalOpen(false);
+            setSelectedTeacher(null);
+            setIsEditing(false);
+          }}
         />
       )}
     </div>

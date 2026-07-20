@@ -1,27 +1,21 @@
 .teacher-search {
   display: flex;
-
-  justify-content: space-between;
-
+  align-items: center;
   gap: 20px;
-
   margin-bottom: 30px;
 }
 
 .teacher-search input,
 .teacher-search select {
-
-  padding: 14px 18px;
-
-  border: 1px solid #d9e2ef;
-
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid #dbe3ef;
   border-radius: 10px;
-
+  background: #fff;
   font-size: 15px;
-
   outline: none;
-
-  background: white;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
 }
 
 .teacher-search input {
@@ -30,15 +24,22 @@
 
 .teacher-search input:focus,
 .teacher-search select:focus {
-  border-color: #0A2A66;
+  border-color: #0a2a66;
+  box-shadow: 0 0 0 3px rgba(10, 42, 102, 0.08);
 }
 
-@media(max-width:768px){
-
-.teacher-search{
-
-flex-direction:column;
-
+.teacher-search select {
+  min-width: 220px;
+  cursor: pointer;
 }
 
+@media (max-width: 768px) {
+  .teacher-search {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .teacher-search select {
+    min-width: 100%;
+  }
 }

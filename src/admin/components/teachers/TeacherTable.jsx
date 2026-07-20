@@ -6,17 +6,20 @@ import {
   FaTrash,
 } from "react-icons/fa";
 
-const TeacherTable = ({ teachers, deleteTeacher }) => {
+const TeacherTable = ({
+  teachers,
+  deleteTeacher,
+  viewTeacher,
+  editTeacher,
+}) => {
   return (
     <div className="teacher-table">
       <table>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Teacher</th>
+            <th>Photo</th>
+            <th>Name</th>
             <th>Department</th>
-            <th>Email</th>
-            <th>Phone</th>
             <th>Status</th>
             <th align="center">Actions</th>
           </tr>
@@ -26,22 +29,30 @@ const TeacherTable = ({ teachers, deleteTeacher }) => {
           {teachers.length > 0 ? (
             teachers.map((teacher) => (
               <tr key={teacher.id}>
-                <td>{teacher.id}</td>
+                <td>
+                  {teacher.photo ? (
+                    <img
+                      src={teacher.photo}
+                      alt={teacher.name}
+                      className="teacher-photo"
+                    />
+                  ) : (
+                    <div className="teacher-avatar">
+                      {teacher.name.charAt(0)}
+                    </div>
+                  )}
+                </td>
 
                 <td>{teacher.name}</td>
 
                 <td>{teacher.department}</td>
-
-                <td>{teacher.email}</td>
-
-                <td>{teacher.phone}</td>
 
                 <td>
                   <span
                     className={`status ${
                       teacher.status === "Active"
                         ? "active"
-                        : "leave"
+                        : "hidden"
                     }`}
                   >
                     {teacher.status}
@@ -51,21 +62,23 @@ const TeacherTable = ({ teachers, deleteTeacher }) => {
                 <td className="actions">
                   <button
                     className="view-btn"
-                    title="View Teacher"
+                    title="View"
+                    onClick={() => viewTeacher(teacher)}
                   >
                     <FaEye />
                   </button>
 
                   <button
                     className="edit-btn"
-                    title="Edit Teacher"
+                    title="Edit"
+                    onClick={() => editTeacher(teacher)}
                   >
                     <FaEdit />
                   </button>
 
                   <button
                     className="delete-btn"
-                    title="Delete Teacher"
+                    title="Delete"
                     onClick={() => deleteTeacher(teacher.id)}
                   >
                     <FaTrash />
@@ -75,11 +88,8 @@ const TeacherTable = ({ teachers, deleteTeacher }) => {
             ))
           ) : (
             <tr>
-              <td
-                colSpan="7"
-                className="no-data"
-              >
-                No teachers found.
+              <td colSpan="5" className="no-data">
+                No faculty members found.
               </td>
             </tr>
           )}

@@ -1,41 +1,66 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../styles/teacherForm.css";
 
-const TeacherForm = ({ addTeacher, onClose }) => {
-  const [teacher, setTeacher] = useState({
+const TeacherForm = ({
+  addTeacher,
+  teacher,
+  isEditing,
+  onClose,
+}) => {
+  const [formData, setFormData] = useState({
+    id: null,
     name: "",
     department: "",
-    email: "",
-    phone: "",
     status: "Active",
+    photo: "",
   });
 
+  useEffect(() => {
+    if (teacher) {
+      setFormData(teacher);
+    }
+  }, [teacher]);
+
   const handleChange = (e) => {
-    setTeacher((prev) => ({
+    setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleImage = (e) => {
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    setFormData((prev) => ({
+      ...prev,
+      photo: URL.createObjectURL(file),
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    addTeacher(teacher);
+    addTeacher(formData);
 
-    setTeacher({
+    setFormData({
+      id: null,
       name: "",
       department: "",
-      email: "",
-      phone: "",
       status: "Active",
+      photo: "",
     });
   };
 
   return (
     <div className="modal-overlay">
       <div className="teacher-modal">
+
         <div className="modal-header">
-          <h2>Add Teacher</h2>
+          <h2>
+            {isEditing ? "Edit Faculty" : "Add Faculty Member"}
+          </h2>
 
           <button
             type="button"
@@ -49,55 +74,64 @@ const TeacherForm = ({ addTeacher, onClose }) => {
           className="teacher-form"
           onSubmit={handleSubmit}
         >
+          <label>Faculty Photo</label>
+
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImage}
+          />
+
+          {formData.photo && (
+            <img
+              src={formData.photo}
+              alt="Preview"
+              className="teacher-photo"
+            />
+          )}
+
           <input
             type="text"
             name="name"
-            placeholder="Teacher Name"
-            value={teacher.name}
-            onChange={handleChange}
-            required
-          />
-
-          <input
-            type="text"
-            name="department"
-            placeholder="Department"
-            value={teacher.department}
-            onChange={handleChange}
-            required
-          />
-
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            value={teacher.email}
-            onChange={handleChange}
-            required
-          />
-
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone Number"
-            value={teacher.phone}
+            placeholder="Full Name"
+            value={formData.name}
             onChange={handleChange}
             required
           />
 
           <select
+            name="department"
+            value={formData.department}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select Department</option>
+            <option>Mathematics</option>
+            <option>Science</option>
+            <option>English</option>
+            <option>Kannada</option>
+            <option>Hindi</option>
+            <option>Social Science</option>
+            <option>Computer Science</option>
+            <option>Commerce</option>
+            <option>Physical Education</option>
+            <option>Arts</option>
+          </select>
+
+          <select
             name="status"
-            value={teacher.status}
+            value={formData.status}
             onChange={handleChange}
           >
             <option value="Active">Active</option>
-            <option value="On Leave">On Leave</option>
+            <option value="Hidden">Hidden</option>
           </select>
 
           <button type="submit">
-            Save Teacher
+            {isEditing ? "Update Faculty" : "Save Faculty"}
           </button>
         </form>
+
       </div>
     </div>
   );

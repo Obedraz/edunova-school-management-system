@@ -1,29 +1,28 @@
-import "../../styles/teacherStats.css";
+import "./../../styles/teacherStats.css";
 
-const TeacherStats = () => {
+const TeacherStats = ({ teachers }) => {
+  const total = teachers.length;
+  const active = teachers.filter(
+    (teacher) => teacher.status === "Active"
+  ).length;
+  const hidden = teachers.filter(
+    (teacher) => teacher.status === "Hidden"
+  ).length;
+
+  const stats = [
+    { title: "Total Faculty", value: total },
+    { title: "Active", value: active },
+    { title: "Hidden", value: hidden },
+  ];
+
   return (
     <div className="teacher-stats">
-
-      <div className="teacher-stat">
-        <h2>86</h2>
-        <p>Total Teachers</p>
-      </div>
-
-      <div className="teacher-stat">
-        <h2>74</h2>
-        <p>Active</p>
-      </div>
-
-      <div className="teacher-stat">
-        <h2>12</h2>
-        <p>On Leave</p>
-      </div>
-
-      <div className="teacher-stat">
-        <h2>15</h2>
-        <p>Departments</p>
-      </div>
-
+      {stats.map((stat) => (
+        <div className="teacher-stat-card" key={stat.title}>
+          <h3>{stat.value}</h3>
+          <p>{stat.title}</p>
+        </div>
+      ))}
     </div>
   );
 };
