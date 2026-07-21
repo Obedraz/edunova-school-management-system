@@ -1,9 +1,9 @@
 import { useState } from "react";
-import admissionsData from "../data/admissions";
-import "../styles/admissions.css";
+import heroData from "../../data/hero";
+import "../../styles/hero.css";
 
-const Admissions = () => {
-  const [admissions, setAdmissions] = useState(admissionsData);
+const Hero = () => {
+  const [slides, setSlides] = useState(heroData);
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("All");
   const [showModal, setShowModal] = useState(false);
@@ -12,18 +12,19 @@ const Admissions = () => {
   const [formData, setFormData] = useState({
     id: null,
     title: "",
-    class: "",
-    lastDate: "",
+    subtitle: "",
+    buttonText: "",
+    image: "",
     status: "Published",
   });
 
-  const filteredAdmissions = admissions.filter((item) => {
-    const matchSearch = item.title
+  const filteredSlides = slides.filter((slide) => {
+    const matchSearch = slide.title
       .toLowerCase()
       .includes(search.toLowerCase());
 
     const matchStatus =
-      status === "All" || item.status === status;
+      status === "All" || slide.status === status;
 
     return matchSearch && matchStatus;
   });
@@ -35,24 +36,36 @@ const Admissions = () => {
     setFormData({
       id: null,
       title: "",
-      class: "",
-      lastDate: "",
+      subtitle: "",
+      buttonText: "",
+      image: "",
       status: "Published",
     });
+  };
+
+  const handleImage = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      setFormData({
+        ...formData,
+        image: URL.createObjectURL(file),
+      });
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (isEditing) {
-      setAdmissions(
-        admissions.map((item) =>
-          item.id === formData.id ? formData : item
+      setSlides(
+        slides.map((slide) =>
+          slide.id === formData.id ? formData : slide
         )
       );
     } else {
-      setAdmissions([
-        ...admissions,
+      setSlides([
+        ...slides,
         {
           ...formData,
           id: Date.now(),
@@ -63,54 +76,51 @@ const Admissions = () => {
     resetForm();
   };
 
-  const editAdmission = (item) => {
-    setFormData(item);
+  const editSlide = (slide) => {
+    setFormData(slide);
     setIsEditing(true);
     setShowModal(true);
   };
 
-  const deleteAdmission = (id) => {
-    if (window.confirm("Delete this admission?")) {
-      setAdmissions(
-        admissions.filter((item) => item.id !== id)
-      );
+  const deleteSlide = (id) => {
+    if (window.confirm("Delete this slide?")) {
+      setSlides(slides.filter((slide) => slide.id !== id));
     }
   };
 
-  const viewAdmission = (item) => {
+  const viewSlide = (slide) => {
     alert(
-      `Title : ${item.title}
-Class : ${item.class}
-Last Date : ${item.lastDate}
-Status : ${item.status}`
+`Title : ${slide.title}
+Subtitle : ${slide.subtitle}
+Button : ${slide.buttonText}
+Status : ${slide.status}`
     );
   };
 
   return (
-    <div className="admissions-container">
-
-      <div className="admissions-header">
-        <h2>Admissions</h2>
+    <div className="hero-container">
+      <div className="hero-header">
+        <h2>Hero Slider</h2>
 
         <button
           className="add-btn"
           onClick={() => setShowModal(true)}
         >
-          + Add Admission
+          + Add Slide
         </button>
       </div>
 
-      <div className="admissions-stats">
+      <div className="hero-stats">
         <div className="stat-card">
-          <h3>{admissions.length}</h3>
-          <p>Total Admissions</p>
+          <h3>{slides.length}</h3>
+          <p>Total Slides</p>
         </div>
 
         <div className="stat-card">
           <h3>
             {
-              admissions.filter(
-                (a) => a.status === "Published"
+              slides.filter(
+                (s) => s.status === "Published"
               ).length
             }
           </h3>
@@ -120,8 +130,8 @@ Status : ${item.status}`
         <div className="stat-card">
           <h3>
             {
-              admissions.filter(
-                (a) => a.status === "Hidden"
+              slides.filter(
+                (s) => s.status === "Hidden"
               ).length
             }
           </h3>
@@ -129,7 +139,7 @@ Status : ${item.status}`
         </div>
       </div>
 
-      <div className="admission-search">
+      <div className="hero-search">
         <input
           type="text"
           placeholder="Search..."
@@ -147,52 +157,65 @@ Status : ${item.status}`
         </select>
       </div>
 
-      <table className="admissions-table">
+      <table className="hero-table">
         <thead>
           <tr>
+            <th>Image</th>
             <th>Title</th>
-            <th>Class</th>
-            <th>Last Date</th>
+            <th>Subtitle</th>
+            <th>Button</th>
             <th>Status</th>
             <th>Actions</th>
           </tr>
         </thead>
 
         <tbody>
-          {filteredAdmissions.map((item) => (
-            <tr key={item.id}>
-              <td>{item.title}</td>
-              <td>{item.class}</td>
-              <td>{item.lastDate}</td>
+          {filteredSlides.map((slide) => (
+            <tr key={slide.id}>
+              <td>
+                {slide.image ? (
+                  <img
+                    src={slide.image}
+                    alt=""
+                    className="hero-image"
+                  />
+                ) : (
+                  <div className="hero-placeholder">
+                    No Image
+                  </div>
+                )}
+              </td>
+
+              <td>{slide.title}</td>
+              <td>{slide.subtitle}</td>
+              <td>{slide.buttonText}</td>
 
               <td>
                 <span
-                  className={`status ${item.status.toLowerCase()}`}
+                  className={`status ${slide.status.toLowerCase()}`}
                 >
-                  {item.status}
+                  {slide.status}
                 </span>
               </td>
 
               <td className="actions">
                 <button
                   className="view-btn"
-                  onClick={() => viewAdmission(item)}
+                  onClick={() => viewSlide(slide)}
                 >
                   View
                 </button>
 
                 <button
                   className="edit-btn"
-                  onClick={() => editAdmission(item)}
+                  onClick={() => editSlide(slide)}
                 >
                   Edit
                 </button>
 
                 <button
                   className="delete-btn"
-                  onClick={() =>
-                    deleteAdmission(item.id)
-                  }
+                  onClick={() => deleteSlide(slide.id)}
                 >
                   Delete
                 </button>
@@ -205,16 +228,30 @@ Status : ${item.status}`
       {showModal && (
         <div className="modal-overlay">
           <div className="modal">
+
             <h3>
-              {isEditing
-                ? "Edit Admission"
-                : "Add Admission"}
+              {isEditing ? "Edit Slide" : "Add Slide"}
             </h3>
 
             <form onSubmit={handleSubmit}>
+
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImage}
+              />
+
+              {formData.image && (
+                <img
+                  src={formData.image}
+                  alt=""
+                  className="preview-image"
+                />
+              )}
+
               <input
                 type="text"
-                placeholder="Admission Title"
+                placeholder="Title"
                 required
                 value={formData.title}
                 onChange={(e) =>
@@ -227,25 +264,26 @@ Status : ${item.status}`
 
               <input
                 type="text"
-                placeholder="Class"
+                placeholder="Subtitle"
                 required
-                value={formData.class}
+                value={formData.subtitle}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    class: e.target.value,
+                    subtitle: e.target.value,
                   })
                 }
               />
 
               <input
-                type="date"
+                type="text"
+                placeholder="Button Text"
                 required
-                value={formData.lastDate}
+                value={formData.buttonText}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
-                    lastDate: e.target.value,
+                    buttonText: e.target.value,
                   })
                 }
               />
@@ -276,11 +314,10 @@ Status : ${item.status}`
                   type="submit"
                   className="save-btn"
                 >
-                  {isEditing
-                    ? "Update Admission"
-                    : "Save Admission"}
+                  {isEditing ? "Update Slide" : "Save Slide"}
                 </button>
               </div>
+
             </form>
           </div>
         </div>
@@ -289,4 +326,4 @@ Status : ${item.status}`
   );
 };
 
-export default Admissions;
+export default Hero;
